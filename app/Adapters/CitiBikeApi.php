@@ -12,7 +12,7 @@ class CitiBikeApi {
     $this->client = $client;
   }
 
-  public function get_stations_data()
+  public function get_stations()
   {
     $body = $this->client->request('GET', 'station_information.json')->getBody();
     $body->json = json_decode($body);

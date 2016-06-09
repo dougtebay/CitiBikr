@@ -9,7 +9,7 @@ class StationsController extends Controller
     public function index()
     {
       $citi_bike = new App\Adapters\CitiBikeApi;
-      $response = $citi_bike->get_stations_data();
-      print_r($response);
+      $stations = $citi_bike->get_stations();
+      return view('stations.index')->with('stations', $stations);
     }
 }
