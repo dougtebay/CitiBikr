@@ -15,3 +15,11 @@ Route::get('/', function () {
 });
 
 Route::get('stations', 'StationsController@index');
+
+Route::get('favorites', 'FavoritesController@index');
+
+Route::post('favorites', 'FavoritesController@create');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
