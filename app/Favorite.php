@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Favorite extends Model
 {
-    //
+  protected $fillable = [
+      'name', 'number', 'latitude', 'longitude'
+  ];
 }

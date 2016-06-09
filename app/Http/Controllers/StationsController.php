@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Http\Requests;
 use App;
 
 class StationsController extends Controller
@@ -10,6 +12,7 @@ class StationsController extends Controller
     {
       $citi_bike = new App\Adapters\CitiBikeApi;
       $stations = $citi_bike->get_stations();
-      return view('stations.index')->with('stations', $stations);
+      $favorite = new App\Favorite;
+      return view('stations.index')->with('stations', $stations)->with('favorite', $favorite);
     }
 }
