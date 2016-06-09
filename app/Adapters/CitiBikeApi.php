@@ -1,5 +1,6 @@
 <?php
 namespace App\Adapters;
+
 use GuzzleHttp\Client;
 use App;
 
@@ -11,12 +12,17 @@ class CitiBikeApi {
     $this->client = $client;
   }
 
-  public function get_stations()
+  public function get_stations_data()
   {
     $body = $this->client->request('GET', 'station_information.json')->getBody();
     $body->json = json_decode($body);
+    return $this->build_stations($body);
+  }
+
+  public function build_stations($body)
+  {
     $stations = array();
-    foreach ($body as $last_updated) {
+    foreach($body as $last_updated) {
       foreach($last_updated->data->stations as $station_data)
       {
         $station = new App\Station;

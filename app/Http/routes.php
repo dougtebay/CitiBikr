@@ -12,6 +12,6 @@
 */
 
 Route::get('/', function () {
-    $citi_bike = new App\Adapters\CitiBikeApi;
-    $response = $citi_bike->get_stations();
 });
+
+Route::get('stations', 'StationsController@index');
