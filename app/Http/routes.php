@@ -18,7 +18,7 @@ Route::get('stations', 'StationsController@index');
 
 Route::get('favorites', 'FavoritesController@index');
 
-Route::post('favorites', 'FavoritesController@create');
+Route::post('favorites', 'FavoritesController@store');
 
 Route::auth();
 

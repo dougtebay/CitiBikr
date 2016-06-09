@@ -12,7 +12,8 @@ class FavoritesController extends Controller
     {
     }
 
-    public function create()
+    public function store(Request $request)
     {
+      // $favorite = new App\Adapters\CitiBikeApi;
     }
 }

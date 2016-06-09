@@ -3,6 +3,8 @@
 @section('content')
   <div class='container'>
     <div class='row'>
+      {!! Form::open() !!}
+      {!! Form::close() !!}
       <div class="col-md-1"></div>
       <div class="col-md-10">
         <div class='header'><h1>Citi Bike Stations</h1></div>
@@ -14,8 +16,12 @@
             </div>
             <div class='favorites-button-container'>
               <form method='POST' action='/favorites'>
+                <input type="hidden" name="station->number" value="{!! $station->number !!}">
+                <input type="hidden" name="name" value="{!! $station->name !!}">
+                <input type="hidden" name="latitude" value="{!! $station->latitude !!}">
+                <input type="hidden" name="longitude" value="{!! $station->longitude !!}">
+                <input type="hidden" name="_token" id="_token" value="{!! csrf_token(); !!}">
                 <button type='submit' class='btn btn-primary'>Add to My Favorites</button>
-                <input type="hidden" name="_token" id="_token" value="<?php echo csrf_token(); ?>">
               </form>
             </div>
           </div>
