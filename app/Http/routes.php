@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-});
+Route::get('/', 'FavoritesController@index');
 
 Route::get('stations', 'StationsController@index');
 

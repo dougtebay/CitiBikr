@@ -31,3 +31,20 @@
 .btn {
   font-size: 0.8em;
 }
+
+#background {
+  background: url("http://static.bigstockphoto.com/images/homepage/2016_popular_photo_categories.jpg");
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-y: hidden;
+  background-attachment: fixed;
+  background-position: center center;
+}

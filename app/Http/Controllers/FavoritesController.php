@@ -8,6 +8,11 @@ use App;
 
 class FavoritesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
       $favorites = \Auth::user()->favorites()->get();
