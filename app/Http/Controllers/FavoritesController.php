@@ -10,7 +10,7 @@ class FavoritesController extends Controller
 {
     public function index()
     {
-      $favorites = App\Favorite::all();
+      $favorites = \Auth::user()->favorites()->get();
       return view('favorites.index')->with('favorites', $favorites);
     }
 
@@ -18,6 +18,7 @@ class FavoritesController extends Controller
     {
       $favorite = new App\Favorite;
       $favorite->fill(['name' => $request->get('name')])->fill(['number' => $request->get('number')])->fill(['latitude' => $request->get('latitude')])->fill(['longitude' => $request->get('longitude')])->save();
+      \Auth::user()->favorites()->attach($favorite);
       return redirect()->action('FavoritesController@index');
     }
 }
