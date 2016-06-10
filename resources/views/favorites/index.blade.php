@@ -13,6 +13,11 @@
               <span>{!! $favorite->name !!}</span>
             </div>
             <div class='favorites-button-container'>
+              <form method='POST' action='favorites/{!! $favorite->id !!}'>
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{!! csrf_token(); !!}">
+                <button type='submit' class='btn btn-primary'>Delete Station</button>
+              </form>
             </div>
           </div>
         @endforeach

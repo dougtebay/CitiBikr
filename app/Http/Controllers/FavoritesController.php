@@ -21,4 +21,12 @@ class FavoritesController extends Controller
       \Auth::user()->favorites()->attach($favorite);
       return redirect()->action('FavoritesController@index');
     }
+
+    public function destroy($id)
+    {
+      $favorite = App\Favorite::find($id);
+      \Auth::user()->favorites()->detach($favorite);
+      $favorite->delete();
+      return redirect()->action('FavoritesController@index');
+    }
 }

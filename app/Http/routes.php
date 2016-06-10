@@ -20,6 +20,8 @@ Route::get('favorites', 'FavoritesController@index');
 
 Route::post('favorites', 'FavoritesController@store');
 
+Route::delete('favorites/{id}', 'FavoritesController@destroy');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
