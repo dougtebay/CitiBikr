@@ -1,27 +1,38 @@
-# Laravel PHP Framework
+# CitiBikr
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+App description TK
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+Try CitiBikr on Heroku [here](http://citibikr.herokuapp.com/).
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Database
 
-## Official Documentation
+* The database consists of three tables: a users table, favorites table, and favorite_user pivot/join table. ("Favorites" are Citi Bike stations that a user likes or visits frequently.)
+* A user can have many favorites and a favorite can have many users.
+* The app uses Sqlite locally/for development and Postgres on Heroku/for production. I never quite figured out how to properly set up different environments using different databases, so I made this work by pushing up a version of the database.php to Heroku with the default set to pgsql.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Citi Bike API
 
-## Contributing
+* The app uses an adapter (app/Adapters/CitiBikeApi.php) to connect to the API.
+* HTTP requests are handled by Guzzle.
+* Two routes are used: station_information (for station name, id, latitude, and longitude) and station_status (for number of bikes available).
+* The get_stations and build_stations functions convert JSON from the API into an array of PHP objects representing all stations in the NYC system.
+* The get_bikes and build_bikes functions create an array of key value pairs, associating each station id with the number of bikes available at that station.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+## Models
 
-## Security Vulnerabilities
+* The User and Favorite models establish the many-to-many relationship between instances of these classes.
+* The Station model includes a number of methods related to finding nearby stations, given a latitude/longitude.
+* I first tried writing my own algorithm for finding nearby stations, but realized there were a lot of complexities involved in accurately calculating 'nearness' based on latitude/longitude. For more accurate results, I used Geotools.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+## Technologies Used
 
-## License
+* Laravel
+* PHP
+* SQLite
+* PostgreSQL
+* Citi Bike NYC API
+* Bootstrap
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+# Next Steps
+
+* TK
