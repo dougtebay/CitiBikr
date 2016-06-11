@@ -11,7 +11,7 @@
         "laravelcollective/html": "~5.0",
         "barryvdh/laravel-debugbar": "^2.2",
         "league/geotools": "@stable",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~6.0",
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
