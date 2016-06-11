@@ -16,8 +16,12 @@
   font-size: 1.5em;
   text-align: center;
   color: #FFF;
-  background-color: #039BE5;
+  background-color: #0098e4;
   display: inline-block;
+}
+
+.row {
+  text-align: center;
 }
 
 .station-description-container {
@@ -28,8 +32,17 @@
   padding: 12px;
 }
 
-.btn {
-  font-size: 0.8em;
+.btn-primary {
+  font-size: 0.9em;
+}
+
+.input-group {
+  width: 400px;
+  padding-top: 18px;
+}
+
+.input-group-btn.btn {
+  display: inline-block;
 }
 
 #background {
@@ -47,4 +60,20 @@
   overflow-y: hidden;
   background-attachment: fixed;
   background-position: center center;
+}
+
+.citi {
+  color: #052b6c;
+}
+
+.bikr {
+  color: #0098e4;
+}
+
+h1 {
+  color: #052b6c;
+}
+
+.navbar-brand {
+  font-size: 1.5em;
 }

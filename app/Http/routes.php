@@ -21,7 +21,9 @@ Route::post('favorites', 'FavoritesController@store');
 
 Route::delete('favorites/{id}', 'FavoritesController@destroy');
 
-Route::get('maps', 'MapsController@index');
+Route::get('index', 'SearchesController@index');
+
+Route::post('searches', 'SearchesController@store');
 
 Route::auth();
 
