@@ -16,7 +16,9 @@ class FavoritesController extends Controller
     public function index()
     {
       $favorites = \Auth::user()->favorites()->get();
-      return view('favorites.index')->with('favorites', $favorites);
+      $citi_bike = new App\Adapters\CitiBikeApi;
+      $bikes = $citi_bike->get_bikes();
+      return view('favorites.index')->with('favorites', $favorites)->with('bikes', $bikes);
     }
 
     public function store(Request $request)

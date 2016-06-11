@@ -17,7 +17,8 @@ class StationsController extends Controller
     {
       $citi_bike = new App\Adapters\CitiBikeApi;
       $stations = $citi_bike->get_stations();
+      $bikes = $citi_bike->get_bikes();
       $favorite = new App\Favorite;
-      return view('stations.index')->with('stations', $stations)->with('favorite', $favorite);
+      return view('stations.index')->with('stations', $stations)->with('bikes', $bikes)->with('favorite', $favorite);
     }
 }

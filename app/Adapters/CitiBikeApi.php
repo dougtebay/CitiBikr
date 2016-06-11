@@ -19,6 +19,13 @@ class CitiBikeApi {
     return $this->build_stations($body);
   }
 
+  public function get_bikes()
+  {
+    $body = $this->client->request('GET', 'station_status.json')->getBody();
+    $body->json = json_decode($body);
+    return $this->build_bikes($body);
+  }
+
   public function build_stations($body)
   {
     $stations = array();
@@ -34,5 +41,19 @@ class CitiBikeApi {
       }
     }
     return $stations;
+  }
+
+  public function build_bikes($body)
+  {
+  $bikes = array();
+  foreach($body as $last_updated) {
+    foreach($last_updated->data->stations as $station_data)
+    {
+      $number = $station_data->station_id;
+      $bikes_available = $station_data->num_bikes_available;
+      $bikes[$number] = $bikes_available;
+    }
+  }
+  return $bikes;
   }
 }

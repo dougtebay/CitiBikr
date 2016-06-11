@@ -9,8 +9,8 @@
         @foreach($favorites as $favorite)
           <div class='station'>
             <div class='station-description-container'>
-              <span>{!! $favorite->number !!}</span>
-              <span>{!! $favorite->name !!}</span>
+              <div>{!! $favorite->name !!}</div>
+              <div>Bikes Available: {!! $bikes[$favorite->number] !!}</div>
             </div>
             <div class='favorites-button-container'>
               <form method='POST' action='favorites/{!! $favorite->id !!}'>

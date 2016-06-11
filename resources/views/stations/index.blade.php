@@ -9,8 +9,8 @@
         @foreach($stations as $station)
           <div class='station'>
             <div class='station-description-container'>
-              <span>{!! $station->number !!}</span>
-              <span>{!! $station->name !!}</span>
+              <div>{!! $station->name !!}</div>
+              <div>Bikes Available: {!! $bikes[$station->number] !!}</div>
             </div>
             <div class='favorites-button-container'>
               {!! Form::model($favorite, array('action' => 'FavoritesController@store')) !!}

@@ -53,6 +53,9 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/favorites') }}">My Favorites</a></li>
                 </ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/maps') }}">Map</a></li>
+                </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
