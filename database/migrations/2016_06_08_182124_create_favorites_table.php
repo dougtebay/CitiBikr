@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStationsTable extends Migration
+class CreateFavoritesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,9 @@ class CreateStationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('stations', function (Blueprint $table) {
+        Schema::create('favorites', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->integer('number');
             $table->float('latitude');
             $table->float('longitude');
@@ -28,6 +29,6 @@ class CreateStationsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('stations');
+        Schema::drop('favorites');
     }
 }
