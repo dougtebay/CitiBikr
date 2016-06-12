@@ -12,11 +12,4 @@ class SessionsController extends Controller
   {
       $this->middleware('auth');
   }
-
-  public function store(Request $request)
-  {
-    // $session = new Session;
-    // $session->persistSession();
-    // return redirect()->action('FavoritesController@index');
-  }
 }

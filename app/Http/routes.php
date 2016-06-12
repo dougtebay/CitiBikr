@@ -25,8 +25,6 @@ Route::get('index', 'SearchesController@index');
 
 Route::post('searches', 'SearchesController@store');
 
-Route::post('sessions', 'SessionsController@store');
-
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
