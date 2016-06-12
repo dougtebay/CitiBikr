@@ -6,13 +6,14 @@ Try CitiBikr on Heroku [here](http://citibikr.herokuapp.com/).
 
 ## Database
 
-* The database consists of three tables: a users table, favorites table, and favorite_user pivot/join table. ("Favorites" are Citi Bike stations that a user likes or visits frequently.)
+* The database consists of four tables: a users table, favorites table, favorite_user pivot/join table, and sessions table. ("Favorites" are Citi Bike stations that a user likes or visits frequently.)
 * A user can have many favorites and a favorite can have many users.
-* The app uses Sqlite locally/for development and Postgres on Heroku/for production. I never quite figured out how to properly set up different environments using different databases, so I made this work by pushing up a version of the database.php to Heroku with the default set to pgsql.
+* The app uses Sqlite locally/for development and Postgres on Heroku/for production. (I never quite figured out how to properly set up different environments using different databases, so I made this work by pushing up a version of the database.php to Heroku with the default set to pgsql.)
+* The sessions table is used to track user sessions and prevent users from having multiple active sessions in different browsers.
 
-## Citi Bike API
+## APIs
 
-* The app uses an adapter (app/Adapters/CitiBikeApi.php) to connect to the API.
+* The app uses an adapter to connect to the Citi Bike API (app/Adapters/CitiBikeApi.php) and Google Maps Geocoding API (app/Adapters/GoogleMapsGeocodingApi.php).
 * HTTP requests are handled by Guzzle.
 * Two routes are used: station_information (for station name, id, latitude, and longitude) and station_status (for number of bikes available).
 * The get_stations and build_stations functions convert JSON from the API into an array of PHP objects representing all stations in the NYC system.
