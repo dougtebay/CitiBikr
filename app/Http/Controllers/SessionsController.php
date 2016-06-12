@@ -15,11 +15,8 @@ class SessionsController extends Controller
 
   public function store(Request $request)
   {
-    $session = new Session;
-    $session->user_id = \Auth::user()->id;
-    $session->session_id = \Session::getId();
-    $sessionInstance = new Session;
-    $session->save();
-    return redirect()->action('FavoritesController@index');
+    // $session = new Session;
+    // $session->persistSession();
+    // return redirect()->action('FavoritesController@index');
   }
 }

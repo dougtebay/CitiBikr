@@ -74,7 +74,14 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-
+    <?php
+    $session = new App\Session;
+    $session->persistSession();
+    if($session->userHasMultipleSessions())
+    {
+        Auth::logout();
+    }
+    ?>
     @yield('content')
 
     <!-- JavaScripts -->

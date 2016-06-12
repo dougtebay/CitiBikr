@@ -13,7 +13,7 @@
 
 Route::get('stations', 'StationsController@index');
 
-Route::get('/', 'SessionsController@store');
+Route::get('/', 'FavoritesController@index');
 
 Route::get('favorites', 'FavoritesController@index');
 
