@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'FavoritesController@index');
-
 Route::get('stations', 'StationsController@index');
+
+Route::get('/', 'SessionsController@store');
 
 Route::get('favorites', 'FavoritesController@index');
 
@@ -24,6 +24,8 @@ Route::delete('favorites/{id}', 'FavoritesController@destroy');
 Route::get('index', 'SearchesController@index');
 
 Route::post('searches', 'SearchesController@store');
+
+Route::post('sessions', 'SessionsController@store');
 
 Route::auth();
 

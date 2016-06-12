@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App;
+use App\Adapters\CitiBikeApi;
+use App\Favorite;
+use App\Session;
 
 class FavoritesController extends Controller
 {
@@ -16,14 +18,14 @@ class FavoritesController extends Controller
     public function index()
     {
       $favorites = \Auth::user()->favorites()->get();
-      $citi_bike = new App\Adapters\CitiBikeApi;
+      $citi_bike = new CitiBikeApi;
       $bikes = $citi_bike->get_bikes();
       return view('favorites.index')->with('favorites', $favorites)->with('bikes', $bikes);
     }
 
     public function store(Request $request)
     {
-      $favorite = new App\Favorite;
+      $favorite = new Favorite;
       $favorite->fill(['name' => $request->get('name')])->fill(['number' => $request->get('number')])->fill(['latitude' => $request->get('latitude')])->fill(['longitude' => $request->get('longitude')])->save();
       \Auth::user()->favorites()->attach($favorite);
       return redirect()->action('FavoritesController@index');
@@ -31,7 +33,7 @@ class FavoritesController extends Controller
 
     public function destroy($id)
     {
-      $favorite = App\Favorite::find($id);
+      $favorite = Favorite::find($id);
       \Auth::user()->favorites()->detach($favorite);
       $favorite->delete();
       return redirect()->action('FavoritesController@index');

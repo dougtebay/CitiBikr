@@ -2,7 +2,6 @@
 namespace App\Adapters;
 
 use GuzzleHttp\Client;
-use App;
 
 class GoogleMapsGeocodingApi {
   protected $client;

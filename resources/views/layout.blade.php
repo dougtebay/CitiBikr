@@ -37,7 +37,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ url('/favorites') }}">
                 <span class='citi'>Citi</span><span class='bikr'>Bikr</span>
             </a>
         </div>
@@ -50,7 +50,7 @@
             </ul>
             <form class="navbar-form navbar-left" role="search" method="POST" action="searches">
                 <div class="form-group">
-                <input type="text" class="form-control" name="search" placeholder="Find stations nearby">
+                <input type="text" class="form-control" name="search" placeholder="Find nearby stations">
                 <input type="hidden" name="_token" value="{!! csrf_token(); !!}">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>

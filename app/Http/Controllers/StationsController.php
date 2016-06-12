@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App;
+use App\Adapters\CitiBikeApi;
+use App\Favorite;
 
 class StationsController extends Controller
 {
@@ -15,10 +16,10 @@ class StationsController extends Controller
 
     public function index()
     {
-      $citi_bike = new App\Adapters\CitiBikeApi;
+      $citi_bike = new CitiBikeApi;
       $stations = $citi_bike->get_stations();
       $bikes = $citi_bike->get_bikes();
-      $favorite = new App\Favorite;
+      $favorite = new Favorite;
       return view('stations.index')->with('stations', $stations)->with('bikes', $bikes)->with('favorite', $favorite);
     }
 }

@@ -2,7 +2,7 @@
 namespace App\Adapters;
 
 use GuzzleHttp\Client;
-use App;
+use App\Station;
 
 class CitiBikeApi {
   protected $client;
@@ -32,7 +32,7 @@ class CitiBikeApi {
     foreach($body as $last_updated) {
       foreach($last_updated->data->stations as $station_data)
       {
-        $station = new App\Station;
+        $station = new Station;
         $station->name = $station_data->name;
         $station->number = $station_data->station_id;
         $station->latitude = $station_data->lat;
