@@ -13,7 +13,6 @@ class GoogleMapsGeocodingApi {
 
   public function get_coordinates($address)
   {
-    $key = getenv('GOOGLE_MAPS_API_KEY');
     $body = $this->client->request('GET', "json?address={$address}")->getBody();
     $body->json = json_decode($body);
     $latitude = $body->json->results[0]->geometry->location->lat;
