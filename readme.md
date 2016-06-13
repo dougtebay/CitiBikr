@@ -54,8 +54,7 @@ Try CitiBikr on Heroku [here](http://citibikr.herokuapp.com/).
 * Only the Station and Session models include functions. I wrote tests for all of those, which can be found under tests/unit.
 * The tests need refactoring, to reduce repetition, and could probably also be improved through use of factories/faker.
 
-## To Do (a partial list)
-* Prevent erroring out if an empty address is submitted
+## Next Steps (a partial list)
 * Add ability to load stations from API in batches, instead of all at once
 * Add more data related to stations and bikes (e.g. number of docks available, etc.)
 * Incorporate maps
