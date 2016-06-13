@@ -24,7 +24,7 @@ Try CitiBikr on Heroku [here](http://citibikr.herokuapp.com/).
 
 #### Google Maps Geocoding API
 
-* The get_coordinates function converts the human-readable address, entered by the user in the navbar search field, into latitude/longitude coodinates that can be used to locate Citi Bike stations. Please note that for accurate results, a search needs to include city and state.
+* The get_coordinates function converts the human-readable address, entered by the user in the navbar search field, into latitude/longitude coodinates that can be used to locate Citi Bike stations. Please note that for accurate results a search needs to include city and state.
 
 ## Models
 
@@ -55,6 +55,7 @@ Try CitiBikr on Heroku [here](http://citibikr.herokuapp.com/).
 * The tests need refactoring, to reduce repetition, and could probably also be improved through use of factories/faker.
 
 ## To Do (a partial list)
+* Prevent erroring out if an empty address is submitted
 * Add ability to load stations from API in batches, instead of all at once
 * Add more data related to stations and bikes (e.g. number of docks available, etc.)
 * Incorporate maps
