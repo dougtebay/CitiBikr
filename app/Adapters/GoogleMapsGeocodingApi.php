@@ -13,10 +13,12 @@ class GoogleMapsGeocodingApi {
 
   public function get_coordinates($address)
   {
-    $body = $this->client->request('GET', "json?address={$address}")->getBody();
-    $body->json = json_decode($body);
-    $latitude = $body->json->results[0]->geometry->location->lat;
-    $longitude = $body->json->results[0]->geometry->location->lng;
-    return [$latitude, $longitude];
+    if($address) {
+      $body = $this->client->request('GET', "json?address={$address}")->getBody();
+      $body->json = json_decode($body);
+      $latitude = $body->json->results[0]->geometry->location->lat;
+      $longitude = $body->json->results[0]->geometry->location->lng;
+      return [$latitude, $longitude];
+    }
   }
 }
