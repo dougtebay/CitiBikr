@@ -35,7 +35,7 @@ Try CitiBikr on Heroku [here](http://citibikr.herokuapp.com/).
 #### Station Model
 
 * This model includes functions related to finding nearby stations, given a latitude/longitude.
-* These methods make use of data from both APIs. After an address is entered by the user, it's converted into latitude/longitude coordinates by way of the Google API. Those coordinates are then compared against the coordinates of all stations in the system, in order to identify stations within a quarter mile of the given address.
+* These methods make use of data from both APIs. After an address is entered by the user, it's converted into latitude/longitude coordinates by way of the Google API. Those coordinates are then compared against the coordinates of all Citi Bike stations in the system, in order to identify stations within a quarter mile of the given address.
 * I first tried writing my own algorithm for finding nearby stations, but realized there were a lot of complexities involved in accurately calculating 'nearness' based on latitude/longitude. For more accurate results, I used Geotools.
 
 #### Session Model
@@ -43,7 +43,7 @@ Try CitiBikr on Heroku [here](http://citibikr.herokuapp.com/).
 * This model includes functions related to preventing a user from having multiple active sessions.
 * The persistSession and userHasMultipleSessions functions are called from the layout blade. (I know it's bad form to interact with models directly from the view, but at this time I haven't found another reliable way of calling these functions on every refresh.)
 * The persistSession function logs the current user id and session id to the database.
-* The userHasMultipleSessions function checks the database for a record with the current user id and a created by date later than that of the current session. If such a record exists—indicating that the user has logged in from another browser—they are logged out of their current session (but remain logged in to the more recent session).
+* The userHasMultipleSessions function checks the database for a record with the current user id and a created by date/time later than that of the current session. If such a record exists—indicating that the user has logged in from another browser—they are logged out of their current session (but remain logged in to the more recent session).
 
 ## Authentication
 
