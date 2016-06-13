@@ -1,6 +1,6 @@
 # CitiBikr
 
-CitiBikr is a PHP/Laravel app that allows users to retrieve data for all Citi Bike stations in the NYC system, save their favorite stations, and search for nearby stations by address.
+CitiBikr is a PHP/Laravel web app that allows users to retrieve data for all Citi Bike stations in the NYC system, save their favorite stations, and search for nearby stations by address.
 
 Try CitiBikr on Heroku [here](http://citibikr.herokuapp.com/).
 
